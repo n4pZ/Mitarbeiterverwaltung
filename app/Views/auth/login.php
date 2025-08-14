@@ -8,20 +8,17 @@ include_once __DIR__ . "/../layout/header.php";
             <input type="email" class="form-control" id="login_email" name="login_email" placeholder="name@example.com">
             <label for="login_email">Email address</label>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="login_passworld" name="login_password"
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="login_password" name="login_password"
                 placeholder="Password">
-            <label for="login_passworld">Password</label>
+            <label for="login_password">Password</label>
         </div>
         <div class="" role="">
-            <button type="submit" class="btn btn-primary">
-                Registrieren
-            </button>
+            <a href="register" class="btn btn-primary">Register</a>
             <button type="submit" class="btn btn-success">
                 Einloggen
             </button>
         </div>
-
     </form>
 </div>
 

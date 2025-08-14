@@ -7,4 +7,9 @@ class AuthController
     {
         include __DIR__ . "/../Views/auth/login.php";
     }
+
+    public function register(): void
+    {
+        include __DIR__ . "/../Views/auth/register.php";
+    }
 }
