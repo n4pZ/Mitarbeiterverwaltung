@@ -3,7 +3,7 @@ include_once __DIR__ . "/../layout/header.php";
 ?>
 
 <div>
-    <form class="container d-flex justify-content-center align-items-center flex-column">
+    <form class="container min-vh-100 d-flex justify-content-center align-items-center flex-column">
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="login_email" name="login_email" placeholder="name@example.com">
             <label for="login_email">Email address</label>
