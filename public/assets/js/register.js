@@ -7,6 +7,12 @@ const registerUser = async () => {
 
   if (password !== password_repeat) {
     return alert("Passwoerter muessen uebereinstimmen!");
+  } else if (
+    password.trim() === "" ||
+    password_repeat.trim() === "" ||
+    email.trim() === ""
+  ) {
+    return alert("Alle Felder muessen ausgefuellt werden!");
   } else {
     fetch("/register", {
       method: "POST",
@@ -31,3 +37,5 @@ const registerUser = async () => {
 const button = document
   .getElementById("register_button")
   .addEventListener("click", registerUser);
+
+//change error handling so that user that wants to register sees error from backend

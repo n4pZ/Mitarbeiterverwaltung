@@ -15,15 +15,14 @@ include_once __DIR__ . "/../layout/header.php";
         </div>
         <div class="" role="">
             <a href="register" class="btn btn-primary">Register</a>
-            <button type="submit" class="btn btn-success">
+            <button type="button" class="btn btn-success" id="login_button">
                 Einloggen
             </button>
         </div>
     </form>
 </div>
 
-
-
+<script src="/assets/js/login.js"></script>
 <?php
 include_once __DIR__ . "/../layout/footer.php";
 ?>
