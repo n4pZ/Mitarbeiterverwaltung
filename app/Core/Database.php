@@ -1,4 +1,9 @@
 <?php
+
+namespace App\Core;
+
+use PDO;
+
 class Database
 {
     private static $pdo;
@@ -7,7 +12,7 @@ class Database
     {
         if (!self::$pdo) {
             self::$pdo = new PDO(
-                "mysql:host=localhost:dbname=Mitarbeiterverwaltung;charset=utf8mb4",
+                "mysql:host=localhost;dbname=Mitarbeiterverwaltung;charset=utf8mb4",
                 "amedeo",
                 "blackcat1"
             );

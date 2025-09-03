@@ -14,8 +14,10 @@ class AuthController
     public function register(): void
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $email = $_POST["email"];
-            $password = $_POST["password"];
+            $data = json_decode(file_get_contents("php://input"));
+
+            $email = $data->email;
+            $password = $data->password;
 
             $user = new User($email, $password);
 
@@ -29,5 +31,3 @@ class AuthController
         }
     }
 }
-
-//there seems to be some kind of issue with the data transfer via js.
