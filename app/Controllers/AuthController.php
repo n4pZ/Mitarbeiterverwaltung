@@ -17,10 +17,10 @@ class AuthController
 
             $user = new User($email, $password);
 
-            if ($user->searchUser($email) === false) {
-                echo json_encode(["message" => "Es existiert kein Account mit dieser E-Mail Adresse"]);
+            if ($user->loginUser($email, $password)) {
+                echo json_encode(["success" => true, "redirect" => "/home"]);
             } else {
-                $user->loginUser($email, $password);
+                echo json_encode(["success" => false, "message" => "Ungültige Anmeldeinformationen"]);
             }
         } else {
             include __DIR__ . "/../Views/auth/login.php";

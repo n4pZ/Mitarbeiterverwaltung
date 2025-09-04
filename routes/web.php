@@ -5,9 +5,10 @@ require_once __DIR__ . "/../vendor/autoload.php";
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 $routes = [
-    "/" => "HomeController@index",
-    "/login" => "AuthController@login",
-    "/register" => "AuthController@register",
+  "/" => "HomeController@index",
+  "/home" => "HomeController@index",
+  "/login" => "AuthController@login",
+  "/register" => "AuthController@register",
 ];
 
 if (array_key_exists($uri, $routes)) {
@@ -20,6 +21,10 @@ if (array_key_exists($uri, $routes)) {
             header("Location: /login");
             exit;
         }
+    }
+
+    if (($uri === "/login" || $uri === "/register") && isset($_SESSION["user_id"])) {
+      header("Location: /home");
     }
 
     $controller->$method();

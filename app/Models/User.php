@@ -21,7 +21,7 @@ class User
         $stmt->execute(["email" => $email]);
         return $stmt->fetch() !== false;
     }
-    public function loginUser($email, $password): void
+    public function loginUser($email, $password): bool
     {
         $pdo = Database::getConnection();
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
@@ -30,11 +30,14 @@ class User
             $user = $stmt->fetch();
 
             if ($user && password_verify($password, $user["password"])) {
-                //hier cookie erstellen und setzen
-                echo json_encode(["message" => "Login erfolgreich!", "success" => true]);
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_email'] = $user['email'];
+                return true;
+            } else {
+                return false;
             }
         } catch (\PDOException $e) {
-            echo json_encode(["message" => "Fehler: " . $e->getMessage()]);
+            return false;
         }
     }
 

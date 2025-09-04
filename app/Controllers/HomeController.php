@@ -5,6 +5,6 @@ class HomeController
 {
     public function index()
     {
-        echo "Willkommen im Dashboard";
+        include __DIR__ . "/../Views/employees/list.php";
     }
 }

@@ -19,8 +19,7 @@ const loginUser = async () => {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        //window.location.href = "/";
-        console.log(data);
+        window.location.href = data.redirect;
       } else {
         alert(data.message);
       }
