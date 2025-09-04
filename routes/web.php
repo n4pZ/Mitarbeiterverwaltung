@@ -11,12 +11,17 @@ $routes = [
   "/register" => "AuthController@register",
 ];
 
+$safeRoutes = [
+  "/login",
+  "/register"
+];
+
 if (array_key_exists($uri, $routes)) {
     list($controllerName, $method) = explode("@", $routes[$uri]);
     $controllerClass = "\\App\\Controllers\\$controllerName";
     $controller = new $controllerClass;
 
-    if ($uri === "/") {
+    if (!in_array($uri, $safeRoutes)) {
         if (!isset($_SESSION["user_id"])) {
             header("Location: /login");
             exit;
